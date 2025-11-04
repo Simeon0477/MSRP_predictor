@@ -1,0 +1,111 @@
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Prédiction du prix de vente d'une voiture</title> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="containers-fluid d-flex">
+            <div class="row title">
+                <h1>Car's Price Predictor</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row contain">
+                <div class="col-md-6 col-12">
+                    <form>
+                        <div class="mb-3">
+                            <label for="make" class="form-label">Marque :</label>
+                            <input type="text" class="form-control" id="make" placeholder="exp : Chevrolet, Ford, VolksWagen">
+                        </div>
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Année de sortie :</label>
+                            <input type="text" class="form-control" id="year" placeholder="exp : 2005, 2025">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cylinder" class="form-label">Nombre de Cylindre :</label>
+                            <input type="number" class="form-control" id="cylinders">
+                        </div>
+                        <div class="mb-3">
+                            <label for="HP" class="form-label">Puissance du moteur :</label>
+                            <input type="text" class="form-control" id="HP">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Category" class="form-label">Catégorie :</label>
+                            <input type="text" class="form-control" id="Category" placeholder="exp : Luxury, Performance, Crossover">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option selected disabled hidden>Type de Carburant</option>
+                                <option value="regular unleaded">Regular Unleaded</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="electric">Electric</option>
+                                <option value="premium unleaded (required)">Premium Unleaded (requis)</option>
+                                <option value="premium unleaded (recommended)">Premium Unleaded (recommandé)</option>
+                                <option value="flex-fuel (unleaded/E85)">Flex-fuel</option>
+                                <option value="flex-fuel (premium unleaded required/E85)">Flex-fuel Premium (requis)</option>
+                                <option value="flex-fuel (premium unleaded recommended/E85)">Flex-fuel Premium (recommandé)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option selected disabled hidden>Type de Transmission</option>
+                                <option value="AUTOMATIC">Automatique</option>
+                                <option value="MANUAL">Manuel</option>
+                                <option value="AUTOMATED_MANUAL">Semi-Automatique</option>
+                                <option value="DIRECT_DRIVE">Transmission directe</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option selected disabled hidden>Roues Motrices</option>
+                                <option value="front wheel drive">front wheel drive</option>
+                                <option value="rear wheel drive">rear wheel drive</option>
+                                <option value="all wheel drive">AWD</option>
+                                <option value="four wheel drive">4WD</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option selected disabled hidden>Taille du véhicule</option>
+                                <option value="Midsize">Moyen</option>
+                                <option value="Compact">Compact</option>
+                                <option value="Large">Large</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option selected disabled hidden>Style de Véhicule</option>
+                                <option value="4dr SUV">4dv SUV</option>
+                                <option value="2dr SUV">4dv SUV</option>
+                                <option value="Sedan">Sedan</option>
+                                <option value="Coupe">Coupe</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Convertible SUV">Convertible SUV</option>
+                                <option value="4dr Hatchback">4dv Hatchback</option>
+                                <option value="2dr Hatchback">2dv Hatchback</option>
+                                <option value="Wagon">Wagon</option>
+                                <option value="Crew Cab Pickup">Crew Cab Pickup</option>
+                                <option value="Extended Cab Pickup">Extended Cab Pickup</option>
+                                <option value="Regular Cab Pickup">Regular Cab Pickup</option>
+                                <option value="Passenger Van">Passenger van</option>
+                                <option value="Passenger Minivan">Passenger Minivan</option>
+                                <option value="Cargo Van">Cargo Van</option>
+                                <option value="Cargo Minivan">Cargo Minivan</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy NHM 2025</p>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
