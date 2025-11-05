@@ -20,7 +20,7 @@ body{
 }
 
 .d-flex {
-    background-image: url("car2.png");
+    background-image: url("car.png");
     background-size: cover;
     height: 60vh;
     justify-content: center;

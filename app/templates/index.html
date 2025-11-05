@@ -15,28 +15,40 @@
         <div class="container">
             <div class="row contain">
                 <div class="col-md-6 col-12">
-                    <form>
-                        <div class="mb-3">
+                    <form actio="/predict" method="POST">
+                        <!--div class="mb-3">
                             <label for="make" class="form-label">Marque :</label>
                             <input type="text" class="form-control" id="make" placeholder="exp : Chevrolet, Ford, VolksWagen">
-                        </div>
+                        </div-->
                         <div class="mb-3">
                             <label for="year" class="form-label">Année de sortie :</label>
-                            <input type="text" class="form-control" id="year" placeholder="exp : 2005, 2025">
+                            <input type="text" class="form-control" name="year" placeholder="exp : 2005, 2025">
                         </div>
                         <div class="mb-3">
                             <label for="cylinder" class="form-label">Nombre de Cylindre :</label>
-                            <input type="number" class="form-control" id="cylinders">
+                            <input type="number" class="form-control" name="cylinders">
                         </div>
                         <div class="mb-3">
                             <label for="HP" class="form-label">Puissance du moteur :</label>
-                            <input type="text" class="form-control" id="HP">
+                            <input type="text" class="form-control" name="HP">
                         </div>
                         <div class="mb-3">
                             <label for="Category" class="form-label">Catégorie :</label>
-                            <input type="text" class="form-control" id="Category" placeholder="exp : Luxury, Performance, Crossover">
+                            <input type="text" class="form-control" name="Category" placeholder="exp : Luxury, Performance, Crossover">
                         </div>
-                        <div class="mb-3">
+                        {% for key in session.data.keys() %}
+                            <!--{% if key%}
+                            {% endif %}-->
+                            <div class="mb-3">
+                                <select class="form-select" required name={{ key }}>
+                                    <option selected disabled hidden>{{ key }}</option>
+                                    {% for val in session.data[key] %}
+                                        <option value={{ val }}>{{ val }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        {% endfor %}
+                        <!--<div class="mb-3">
                             <select class="form-select" required>
                                 <option selected disabled hidden>Type de Carburant</option>
                                 <option value="regular unleaded">Regular Unleaded</option>
@@ -95,7 +107,7 @@
                                 <option value="Cargo Van">Cargo Van</option>
                                 <option value="Cargo Minivan">Cargo Minivan</option>
                             </select>
-                        </div>
+                        </div>-->
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
