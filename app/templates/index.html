@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row contain">
                 <div class="col-md-6 col-12">
-                    <form actio="/predict" method="POST">
+                    <form action="/predict" method="POST">
                         <!--div class="mb-3">
                             <label for="make" class="form-label">Marque :</label>
                             <input type="text" class="form-control" id="make" placeholder="exp : Chevrolet, Ford, VolksWagen">
@@ -32,18 +32,18 @@
                             <label for="HP" class="form-label">Puissance du moteur :</label>
                             <input type="text" class="form-control" name="HP">
                         </div>
-                        <div class="mb-3">
+                        <!--div class="mb-3">
                             <label for="Category" class="form-label">Catégorie :</label>
                             <input type="text" class="form-control" name="Category" placeholder="exp : Luxury, Performance, Crossover">
-                        </div>
+                        </div-->
                         {% for key in session.data.keys() %}
                             <!--{% if key%}
                             {% endif %}-->
                             <div class="mb-3">
-                                <select class="form-select" required name={{ key }}>
+                                <select class="form-select" name="{{ key }}" required>
                                     <option selected disabled hidden>{{ key }}</option>
                                     {% for val in session.data[key] %}
-                                        <option value={{ val }}>{{ val }}</option>
+                                        <option value="{{ val }}">{{ val }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -112,6 +112,9 @@
                     </form>
                 </div>
                 <div class="col">
+                    {% if session.names %}
+                        {{ session.names }}
+                    {% endif %}
                 </div>
             </div>
         </div>

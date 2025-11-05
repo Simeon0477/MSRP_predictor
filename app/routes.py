@@ -23,5 +23,18 @@ def home():
 #définition du point final de la prédication
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
+    year = request.form.get("year")
+    cylinder = request.form.get("cylinder")
+    HP = request.form.get("HP")
+    make = request.form.get("Make")
+    engine = request.form.get("Engine Fuel Type")
+    driven = request.form.get("Driven_Wheels")
+    market = request.form.get("Market Category")
+    modele = request.form.get("Model")
+    market = request.form.get("Vehicle Size")
+    modele = request.form.get("Vehicle Style")
+    transmission = request.form.get("Transmission Type")
+    session["names"] = list(request.form.keys())
+    
+    return render_template('index.html')
     
