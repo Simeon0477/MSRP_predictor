@@ -13,10 +13,6 @@ def home():
     with open("./app/static/index.json", "r", encoding="utf-8") as file:
         data = json.load(file)
         session["data"] = data
-        
-    ids = session["data"].keys()
-    for id in ids:
-        id = id.split(" ")[0]
     
     return render_template('index.html')
 
@@ -34,7 +30,6 @@ def predict():
     market = request.form.get("Vehicle Size")
     modele = request.form.get("Vehicle Style")
     transmission = request.form.get("Transmission Type")
-    session["names"] = list(request.form.keys())
     
     return render_template('index.html')
     
