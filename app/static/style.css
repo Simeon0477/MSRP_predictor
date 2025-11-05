@@ -8,7 +8,7 @@ html {
 }
 
 body{
-    background-color: rgb(62, 60, 60);
+    background-color: rgb(250, 249, 249);
 }
 
 .container {
@@ -16,6 +16,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 }
 
 .d-flex {
@@ -25,11 +26,12 @@ body{
     justify-content: center;
     align-items: end;
     padding: 50px;
+    box-shadow: rgb(62, 60, 60) 5px 5px 15px 15px;
 }
 
 .title {
     text-align: left;
-    color: #FFF3CD;
+    color: #fff5d8;
     padding: 10px 0px 20px 0px;
     margin: 0;
     width: 100%;
@@ -49,6 +51,7 @@ h1 {
     font-size: 16px;
     max-width: 1000px;
     width: 100%;
+    box-shadow: rgb(62, 60, 60) 10px 10px 10px 10px;
 }
 
 label {
@@ -76,6 +79,6 @@ select {
     align-items: center;
     padding: 20px;
     font-size: 16px;
-    color: white;
+    color: black;
     font-weight: 600;
 }
