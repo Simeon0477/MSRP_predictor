@@ -14,36 +14,66 @@
         </div>
         <div class="container">
             <div class="row contain">
-                <div class="col-md-6 col-12">
+                <div class="col-md-12 col-12">
                     <form action="/predict" method="POST">
-                        <div class="mb-3">
-                            <label for="year" class="form-label">Année de sortie :</label>
-                            <input type="text" class="form-control" name="year" placeholder="exp : 2005, 2025">
-                        </div>
-                        <div class="mb-3">
-                            <label for="cylinder" class="form-label">Nombre de Cylindre :</label>
-                            <input type="number" class="form-control" name="cylinders" max=8>
-                        </div>
-                        <div class="mb-3">
-                            <label for="HP" class="form-label">Puissance du moteur :</label>
-                            <input type="text" class="form-control" name="HP">
-                        </div>
-                        {% for key in session.data.keys() %}
-                            <div class="mb-3">
-                                <select class="form-select" name="{{ key }}" required>
-                                    <option selected disabled hidden>{{ key }}</option>
-                                    {% for val in session.data[key] %}
-                                        <option value="{{ val }}">{{ val }}</option>
-                                    {% endfor %}
-                                </select>
+                        <div class="row">
+                            <div class="col-6">
+                                {% for key in session.data.keys() %}
+                                    <div class="mb-3">
+                                        <label for="{{ key }}" class="form-label">{{ key }} :</label>
+                                        <input list="{{key}}" class="form-control" name="{{ key }}" placeholder="{{session.data[key][0]}}" required>
+                                        <datalist id="{{ key }}">
+                                            <!--option selected disabled hidden>{{ key }}</option-->
+                                            {% for val in session.data[key] %}
+                                                <option value="{{ val }}">{{ val }}</option>
+                                            {% endfor %}
+                                        </datalist>
+                                    </div>
+                                {% endfor %}
                             </div>
-                        {% endfor %}
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="col-6">
+                                {% for num in session.nums %}
+                                    <div class="mb-3">
+                                        <label for="{{ num }}" class="form-label">{{ num }} :</label>
+                                        <input type="number" class="form-control" name="{{ num }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row button">
+                            <button type="submit" class="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
-                <div class="col">
+                <div class="col-12 pred">
                     <div>
-                        <h2>MSRP</h2>
+                        <div class="row-2 msrp">
+                            <h2>MSRP</h2>
+                            <div class="result_main">
+                                {% if session.price != 0.0 %}
+                                    {{ session.price|round(2) }} $
+                                {% endif %}
+                            </div>
+                        </div>
+                
+                        <!--div class="row interval">
+                            <div class="col min">
+                                <h2>Minimum</h2>
+                                <div class="result_min">
+                                    {% if session.max != 0.0 %}
+                                        {{ session.min|round(2) }} $
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col max">
+                                <h2>Maximum</h2>
+                                <div class="result_max">
+                                    {% if session.max != 0.0 %}
+                                        {{ session.max|round(2) }} $
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div-->
                     </div>
                 </div>
             </div>
